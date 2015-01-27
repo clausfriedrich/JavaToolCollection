@@ -19,7 +19,12 @@ package pub.Demo.Tray;
  * USA.
  */
 
+import java.awt.AWTException;
 import java.awt.BorderLayout;
+import java.awt.CheckboxMenuItem;
+import java.awt.Menu;
+import java.awt.MenuItem;
+import java.awt.PopupMenu;
 import java.awt.SystemTray;
 import java.awt.TrayIcon;
 import java.awt.event.ActionEvent;
@@ -50,10 +55,58 @@ import javax.swing.UIManager;
 
 public class Tray implements ActionListener, ItemListener {
 
-    SystemTray tray = SystemTray.getSystemTray();
-    TrayIcon ti;
-    JFrame frame;
+    //SystemTray tray = SystemTray.getSystemTray();
+    //TrayIcon ti;
+    //JFrame frame;
     public Tray() {
+    	
+    	if (!SystemTray.isSupported()) {
+            System.out.println("SystemTray is not supported");
+            return;
+        }
+        final PopupMenu popup = new PopupMenu();
+        final TrayIcon trayIcon = new java.awt.TrayIcon(java.awt.Toolkit.getDefaultToolkit().getImage("DemoTray/src/pub.Demo.Tray/duke.gif"));
+        final SystemTray tray = SystemTray.getSystemTray();
+       
+        // Create a pop-up menu components
+        MenuItem aboutItem = new MenuItem("About");
+        CheckboxMenuItem cb1 = new CheckboxMenuItem("Set auto size");
+        CheckboxMenuItem cb2 = new CheckboxMenuItem("Set tooltip");
+        Menu displayMenu = new Menu("Display");
+        MenuItem errorItem = new MenuItem("Error");
+        MenuItem warningItem = new MenuItem("Warning");
+        MenuItem infoItem = new MenuItem("Info");
+        MenuItem noneItem = new MenuItem("None");
+        MenuItem exitItem = new MenuItem("Exit");
+       
+        //Add components to pop-up menu
+        popup.add(aboutItem);
+        popup.addSeparator();
+        popup.add(cb1);
+        popup.add(cb2);
+        popup.addSeparator();
+        popup.add(displayMenu);
+        displayMenu.add(errorItem);
+        displayMenu.add(warningItem);
+        displayMenu.add(infoItem);
+        displayMenu.add(noneItem);
+        popup.add(exitItem);
+       
+        trayIcon.setPopupMenu(popup);
+       
+        try {
+            tray.add(trayIcon);
+            System.out.println("TrayIcon added.");
+        } catch (AWTException e) {
+            System.out.println("TrayIcon could not be added.");
+        }
+    	
+    	
+    	
+    	
+    	
+    	
+/*    	
 
         JPopupMenu menu;
         JMenu  submenu;
@@ -143,10 +196,11 @@ public class Tray implements ActionListener, ItemListener {
         menuItem.addActionListener(this);
         menu.add(menuItem);
         
-        //ImageIcon i = new ImageIcon("duke.gif");
+        ImageIcon i = new ImageIcon("duke.gif");
         //ImageIcon i = new ImageIcon(Tray.class.getResource("binary/images/duke.gif"));
-        ImageIcon i = new ImageIcon("binary/images/duke.gif");
-
+        //ImageIcon i = new ImageIcon("binary/images/duke.gif");
+*/
+/*
         ti = new TrayIcon(i, "JDIC Tray Icon API Demo - TrayIcon", menu);
 
         ti.setIconAutoSize(true);
@@ -212,7 +266,7 @@ public class Tray implements ActionListener, ItemListener {
         frame.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         frame.pack();
         frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+        frame.setVisible(true);*/
     }
 
     // Returns just the class name -- no package info.
