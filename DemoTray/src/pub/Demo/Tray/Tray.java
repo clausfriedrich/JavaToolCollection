@@ -50,7 +50,7 @@ import javax.swing.UIManager;
 
 public class Tray implements ActionListener, ItemListener {
 
-    SystemTray tray = SystemTray.getDefaultSystemTray();
+    SystemTray tray = SystemTray.getSystemTray();
     TrayIcon ti;
     JFrame frame;
     public Tray() {
