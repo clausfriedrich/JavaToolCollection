@@ -55,9 +55,6 @@ import javax.swing.UIManager;
 
 public class Tray implements ActionListener, ItemListener {
 
-    //SystemTray tray = SystemTray.getSystemTray();
-    //TrayIcon ti;
-    //JFrame frame;
     public Tray() {
     	
     	if (!SystemTray.isSupported()) {
