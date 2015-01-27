@@ -67,6 +67,7 @@ public class Tray implements ActionListener, ItemListener {
         final PopupMenu popup = new PopupMenu();
         final TrayIcon trayIcon = new java.awt.TrayIcon(java.awt.Toolkit.getDefaultToolkit().getImage("duke.gif"));
         final SystemTray tray = SystemTray.getSystemTray();
+        
        
         // Create a pop-up menu components
         MenuItem aboutItem = new MenuItem("About");
