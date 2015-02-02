@@ -90,6 +90,7 @@ public class Tray implements ActionListener, ItemListener {
         displayMenu.add(noneItem);
         popup.add(exitItem);
        
+        //Kommentar
         trayIcon.setPopupMenu(popup);
        
         try {
