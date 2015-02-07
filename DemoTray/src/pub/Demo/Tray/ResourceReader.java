@@ -1,8 +1,6 @@
 /**
- * HIer wird was geändert
- * 
- * 
- * 
+ * Hier wird was geändert.
+ * Toll, mal sehen was noch so alles geht! 
  */
 
 package pub.Demo.Tray;
