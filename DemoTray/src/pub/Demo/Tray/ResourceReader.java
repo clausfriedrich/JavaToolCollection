@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 
 // class
 // zweite Class
+// dritte Class
 public class ResourceReader
 {
   public Image loadImageResource(String pkgname, String fname)
