@@ -1,5 +1,5 @@
 /**
- * HIer wird was ge‰ndert
+ * HIer wird was ge√§ndert
  * 
  * 
  * 
@@ -14,6 +14,7 @@ import java.io.InputStream;
 
 import javax.swing.ImageIcon;
 
+// class
 public class ResourceReader
 {
   public Image loadImageResource(String pkgname, String fname)
